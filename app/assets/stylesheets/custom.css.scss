@@ -1,0 +1,153 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 60px;
+}
+
+
+.jumbotron {
+   background: rgb(200, 54, 54); /* For IE8 and below */
+   background: rgba(250, 250, 250, 0.5); 
+   animation-iteration-count: 1;
+}
+
+
+.container table tbody tr:hover td {
+    background-color: #ff8822;
+}
+
+//----------------------------------------
+// Notification styling alerts
+//----------------------------------------
+// https://github.com/plataformatec/devise/wiki/How-To:-Integrate-I18n-Flash-Messages-with-Devise-and-Bootstrap
+
+.alert-error {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+text-align: left;
+}
+.alert-alert, #error_explanation {
+background-color: #f2dede;
+border-color: #ebccd1;
+color: #a94442;
+text-align: left;
+}
+.alert-success {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: left;
+}
+.alert-notice {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: left;
+}
+#error_explanation {
+padding: 15px 15px 15px 30px;
+margin-bottom: 30px;
+}
+
+//----------------------------------------
+// Video
+//----------------------------------------
+.background-wrap {
+/*  making the video fullscreen  */
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+//  height: 50%;
+//  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+//#crossfit {
+//  position: fixed;
+//  top: 0;
+//  left: 0;
+//  min-height: 50%;
+//  min-width: 50%;
+//}
+
+//----------------------------------------
+// Background images
+//----------------------------------------
+.container.signup {
+  background: url(/running.jpg) no-repeat center fixed; 
+  min-height: 100%;
+  min-width: 1024px;
+  width: auto;
+  position: absolute;
+  top: 5;
+  left: 0;
+  right: 0;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container.signin {
+  background: url(/mountain_biking.jpg) no-repeat center fixed; 
+  min-height: 100%;
+  min-width: 1024px;
+  width: auto;
+  position: absolute;
+  top: -5;
+  left: 0;
+  right: 0;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container.graph {
+  background: url(/graph.jpg) no-repeat center fixed; 
+  background-size: 100%;
+  min-height: 100%;
+  min-width: 1024px;
+  width: auto;
+  position: absolute;
+  top: -5;
+  left: 0;
+  right: 0;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+//----------------------------------------
+// Charts
+//----------------------------------------
+.morris-hover{
+  position:absolute;
+  z-index:1000;
+}
+
+.morris-hover.morris-default-style{ 
+  border-radius:10px;
+  padding:6px;
+  color:#666;
+  background:rgba(255, 255, 255, 0.8);
+  border:solid 2px rgba(230, 230, 230, 0.8);
+  font-family:sans-serif;
+  font-size:12px;
+  text-align:center;
+}
+.morris-hover.morris-default-style .morris-hover-row-label{
+  font-weight:bold;
+  margin:0.25em 0;
+}
+.morris-hover.morris-default-style .morris-hover-point{
+  white-space:nowrap;
+  margin:0.1em 0;
+}

@@ -1,0 +1,16 @@
+== ABetterU | Workout Tracker App
+
+http://integrateyourself.com/wp-content/uploads/Community-Hands.jpg
+
+Coding Challenge 2016
+
+Following features are necessary:
+- Users need to sign-up and login/logout (no email authentication necessary)
+- They will need ability to search for friends by email address or username. If they find friends, they can add them to their friends list. The friend who has been added will also find the user who added them in their friends list (both -ways). Bonus - Add an accept option so the friend isn't automatically added but is added once the requested friend accepts this request
+- Build a my workouts page where the user can add planned workouts for the next week. 
+- Build a friend's workouts page where the user can view friends workout listings and click on their friend to view their workouts
+- As user completes a workout for the week, they can click on a checkbox and that workout shows as completed. As the week ends, a percentage calculation is done on the workouts completed vs. the workouts planned. At the end of the week there is a summary page
+- Build a summary page - this lists your own percentage completion for the week (completed vs planned) and lists all the friends percentage completion for the week (completed vs planned)
+
+---
+https://a-better-u.herokuapp.com/
