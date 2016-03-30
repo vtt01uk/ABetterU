@@ -12,17 +12,23 @@ Rails.application.configure do
 
   #config.action_mailer.delivery_method = :smtp
   #config.action_mailer.default_url_options = { :host => 'a-better-u.herokuapp.com', :protocol => 'https'}
-  
-  config.action_mailer.default_url_options = { :host => 'a-better-u.herokuapp.com' }
-    ActionMailer::Base.smtp_settings = {
-      :address        => "smtp.sendgrid.net",
-      :port           => "25",
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => ENV['SENDGRID_DOMAIN']
-    }
-  
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { :host => 'https://a-better-u.herokuapp.com/' }
+
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV["SENDGRID_USERNAME"],
+    :password => ENV["SENDGRID_PASSWORD"],
+    :address => 'smtp.sendgrid.net',
+    :domain => 'https://a-better-u.herokuapp.com/',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true

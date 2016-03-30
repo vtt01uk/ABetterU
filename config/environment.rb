@@ -4,12 +4,13 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 
-#ActionMailer::Base.smtp_settings = {
-#  :address        => "smtp.sendgrid.net",
-#  :port           => "25",
-#  :authentication => :plain,
-#  :user_name      => ENV['SENDGRID_USERNAME'],
-#  :password       => ENV['SENDGRID_PASSWORD'],
-#  :domain         => 'heroku.com',
-#  :enable_starttls_auto => true
-#  }
+
+ActionMailer::Base.smtp_settings = {
+  :user_name => ENV["SENDGRID_USERNAME"],
+  :password => ENV["SENDGRID_PASSWORD"],
+  :domain => 'https://a-better-u.herokuapp.com/',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
