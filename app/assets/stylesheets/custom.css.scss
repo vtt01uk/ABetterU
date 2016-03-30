@@ -10,6 +10,33 @@ body {
    background: rgb(200, 54, 54); /* For IE8 and below */
    background: rgba(250, 250, 250, 0.5); 
    animation-iteration-count: 1;
+     border: 1px solid #f2cb3b;
+    h1 {
+      font-weight: bold;
+    }
+}
+
+
+.navbar-fixed-top {
+    height: 60px;
+          background-color: #66ccff;
+}
+
+.navbar-default {
+    .container-fluid {
+        .navbar-nav > li > a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .navbar-brand {
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Arial';
+            text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+                       }
+    }
 }
 
 
