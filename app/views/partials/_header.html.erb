@@ -25,10 +25,12 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Home", root_path %></li>
         <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
+
           <div class="form-group">
             <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
           </div>
           <%= submit_tag "Search", class: "btn btn-default" %>
+
         <% end %>
       </ul>
     </div>
