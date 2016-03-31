@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-md-3">
-              <%= f.number_field :duration_in_min, class: "form-control" %>
+              <%= f.number_field :duration_in_min, class: "form-control", min: "0", placeholder: "0" %>
             </div>
           </div>
 
@@ -31,7 +31,7 @@
               <%= f.label :workout, "Workout Details" %><br>
             </div>
             <div class="col-md-8">
-              <%= f.text_area :workout, class: "form-control", rows: "10" %>
+              <%= f.text_area :workout, class: "form-control", rows: "10", placeholder: "Enter Workout Details" %>
 
             </div>
           </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-3">
               <%= f.date_select(:workout_date, :order => [:month, :day, :year], class: 'form-control') %>
-              
+
             </div>
           </div>
 
