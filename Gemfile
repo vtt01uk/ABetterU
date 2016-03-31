@@ -6,6 +6,7 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 # Bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.
 gem 'bootstrap-sass', '3.3.6'
+gem 'twitter-bootstrap-rails'
 # Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website.
 gem 'autoprefixer-rails', '6.3.3'
 # Flexible authentication solution for Rails with Warden

@@ -1,33 +1,109 @@
-<header>
-  Welcome to A Better U
+<header class="header-23">
+    <div class="container">
+        <div class="row">
+            <div class="navbar col-sm-12" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"></button>
+                    <%= link_to 'A Better U', root_path, class: 'brand' %>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav pull-right">
+                        <li><%= link_to 'Home', root_path %></li>
+                        <% if user_signed_in? %>
+                          <li><%= link_to 'My Exercises', user_exercises_path(current_user) %></li>
+                          <li><%= link_to 'My Account', edit_user_registration_path %></li>
+                          <li><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete  %></li>
+                        <% else %>
+                          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                          <li><%= link_to 'Login', new_user_session_path %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
-
-<div class="background-wrap">
- <video id="rise" autoplay loop muted>
-   <source src="Crossfit_.mp4" type="video/mp4">
-   Video not supported
- </video>
-</div>
-
-<!--<% if user_signed_in? %>-->
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h2>List of Members</h2>
-    <%= will_paginate @athletes, renderer: BootstrapPagination::Rails, class: "pull-left-paginate" %>
-  </div>
-</div>
-
-<div class="container">
-    <div class="row">
-      <% @athletes.each do |athlete| %>
-    <div class="col-md-10 col-md-offset-1 well member">
-        <%= athlete.full_name %>
-      <% if current_user %>
-        <%= link_to "Add", friendships_path(friend_id: athlete.id), method: :post, class: "btn btn-primary pull-right" unless current_user.follows_or_same?(athlete) %>
-      <% end %>
+<section class="header-23-sub bg-midnight-blue">
+  <video autoplay loop muted poster="mountain_biking" id="bgvid">
+      <source src="Crossfit_.mp4" type="video/mp4">
+  </video>
+    <div class="background">&nbsp;</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="hero-unit">
+                    <strong>Startup Framework</strong>
+                    <a class="btn-play" id="vidpause" href="#">Play</a>
+                    <span>Now you have the design</span>
+                </div>
+            </div>
+        </div>
     </div>
-      <% end %>
+</section>
+
+<section class="content-35">
+    <div class="background" id="home-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div></div>
+                </div>
+            </div>
+        </div>
     </div>
-      <% end %>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-5">
+                <h2>Users Working Out</h2>
+                <div class="user-using">
+                  <% if user_signed_in? %>
+                    <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
+                        <div class="form-group">
+                          <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
+                        </div>
+                          <%= submit_tag "Search", class: "btn btn-default" %>
+                    <% end %>
+                  <% end %>
+                  <% @athletes.each do |a| %>
+                    <p><%= a.first_name %> <%= a.last_name %>  since: <%= a.created_at.strftime('%b/%Y') %></p><br>
+                  <% end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<script>
+var vid = document.getElementById("bgvid"),
+pauseButton = document.getElementById("vidpause");
+function vidFade() {
+    vid.classList.add("stopfade");
+}
+vid.addEventListener('ended', function() {
+    // only functional if "loop" is removed
+     vid.pause();
+	// to capture IE10
+	vidFade();
+});
+pauseButton.addEventListener("click", function() {
+    vid.classList.toggle("stopfade");
+	if (vid.paused) {
+vid.play();
+		pauseButton.innerHTML = "Pause";
+	} else {
+        vid.pause();
+        pauseButton.innerHTML = "Paused";
+	}
+})
+
+</script>

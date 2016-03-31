@@ -13,4 +13,17 @@
  *= require_tree .
  *= require jquery-ui/datepicker
  *= require_self
+ *= require bootstrap_and_overrides
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.alert {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 60%;
+}

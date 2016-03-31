@@ -7,11 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <%= render 'partials/header'%>
-    <%= render 'partials/main'%>
+    <%= bootstrap_flash %>
     <%= yield %>
-    <% render 'partials/footer'%>
+
   </div>
 </body>
 </html>
