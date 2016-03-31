@@ -1,8 +1,8 @@
+<%= render 'partials/header' %>
 <section>
-  <%= render 'partials/header' %>
   <div class="container">
-      <% unless @exercises.empty? %>
-      <h1>Listing Exercises</h1><br>
+    <% unless @exercises.empty? %>
+        <h1>Listing Exercises</h1><br>
         <%= will_paginate @exercises %>
       <table class="table table-hover">
         <thead>
@@ -15,51 +15,48 @@
         </thead>
         <tbody>
           <% @exercises.each do |exercise| %>
-          <tr>
-            <td><%= exercise.duration_in_min %></td>
-            <td><%= link_to "#{truncate(exercise.workout, length: 100)}", [current_user, exercise] %></td>
-            <td><%= exercise.workout_date.strftime('%m-%d-%Y') %></td>
-            <td><%#= link_to "Show", [current_user, exercise] %></td>
-            <td><%= link_to "Edit", [:edit, current_user, exercise], class: "btn btn-sm btn-warning" %></td>
-            <td><%= link_to "Delete", [current_user, exercise],
+            <tr>
+              <td><%= exercise.duration_in_min %></td>
+              <td><%= link_to "#{truncate(exercise.workout, length: 100)}", [current_user, exercise] %></td>
+              <td><%= exercise.workout_date.strftime('%m-%d-%Y') %></td>
+              <td><%#= link_to "Show", [current_user, exercise] %></td>
+              <td><%= link_to "Edit", [:edit, current_user, exercise], class: "btn btn-sm btn-warning" %></td>
+              <td><%= link_to "Delete", [current_user, exercise],
                                        method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-danger" %></td>
-           </tr>
-          <% end %>
-        </tbody>
-      </table>
-        <%= will_paginate @exercises %>
-      <br>
-
+            </tr>
+           <% end %>
+          </tbody>
+        </table>
+          <%= will_paginate @exercises %>
+        <br>
       <% else %>
-
-      <div class="alert alert-danger message-font text-center" role="alert">
-        No Workouts yets
-      </div>
-      <br>
-
-      <% end %>
-
-      <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-primary link"%>
-      <%= content_tag :div, "", id: "line-chart", data: {workouts: @exercises} %>
-    </div>
-
-  <div class="container"><br><br><br><br>
-    <div class="col-md-3 col-xs-12">
-
-        <h1 class="text-center">My Friends</h1>
-      <% @friends.each do |friend| %>
-        <div class="col-md-offset-3 col-md-6 friend_name">
-          <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
+        <div class="alert alert-danger message-font text-center" role="alert">
+          No Workouts yets
         </div>
+        <br>
+      <% end %>
+        <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-primary link"%>
+        <%= content_tag :div, "", id: "line-chart", data: {workouts: @exercises} %>
 
-        <div class="col-md-3">
-         <div class="btn-unfollow">
-          <%= link_to "Unfollow", friendship_path(current_user.current_friendship(friend)), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary link "%>
+    </div> <!-- container -->
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+          <h1 class="text-center">My Friends</h1>
+          <% @friends.each do |friend| %>
+            <div class="col-md-offset-3 col-md-6 friend_name">
+              <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
+            </div>
+            <div class="col-md-3">
+              <div class="btn-unfollow">
+                <%= link_to "Unfollow", friendship_path(current_user.current_friendship(friend)), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary link "%>
+              </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  </div>
+        <% end %>
+      </div> <!-- row -->
+    </div> <!-- container -->
+
 
 </section>
