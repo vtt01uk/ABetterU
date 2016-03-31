@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require jquery-ui/datepicker
+//= require twitter/bootstrap
 //= require bootstrap-sprockets
 //= require raphael-min
 //= require morris
 // require turbolinks
 //= require_tree .
+//= require exercise
