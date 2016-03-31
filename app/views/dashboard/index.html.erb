@@ -57,12 +57,14 @@
                 <h2>Users Working Out</h2>
                 <div class="user-using">
                   <% if user_signed_in? %>
-                    <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
-                        <div class="form-group">
-                          <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
-                        </div>
-                          <%= submit_tag "Search", class: "btn btn-default" %>
-                    <% end %>
+                    <div class="row">
+                      <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
+                          <div class="form-group">
+                            <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
+                          </div>
+                            <%= submit_tag "Search", class: "btn btn-default" %>
+                      <% end %>
+                    </div>
                   <% end %>
                   <% @athletes.each do |a| %>
                     <p><%= a.first_name %> <%= a.last_name %>  since: <%= a.created_at.strftime('%b/%Y') %></p><br>

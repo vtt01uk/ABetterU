@@ -1,14 +1,41 @@
-<header class="full-bg">
-  <div class="container">
-   <div class="row search-result">
-      <% @athletes.each do |athlete| %>
-      <div class="col-md-10 col-md-offset-1 well member">
-        <%= athlete.full_name %>
-        <% if current_user %>
-          <%= link_to "Add", friendships_path(friend_id: athlete.id), method: :post, class: "btn btn-primary pull-right" unless current_user.follows_or_same?(athlete) %>
-        <% end %>
-      <% end %>
-      </div>
+<header class="header-12">
+    <div class="container">
+        <div class="row">
+            <div class="navbar">
+                <div class="navbar-header">
+                    <%= link_to 'A Better U', root_path, class: 'brand' %>
+                    <div class="nav">
+                        <%= link_to 'back', :back %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
+<section class="header-12-sub bg-midnight-blue">
+    <div class="background">&nbsp;</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="hero-unit">
+                  <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
+                      <div class="form-group">
+                        <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
+                      </div>
+                        <%= submit_tag "Search", class: "btn btn-default" %>
+                  <% end %>
+                </div>
+            </div>
+            <div class="aside">
+                <div>
+                    <h3>Results:</h3>
+                    <% @athletes.each do |a| %>
+                      <div>
+                        <p><%= a.first_name %> <%= a.last_name %><%= link_to "Add", friendships_path(friend_id: a.id), method: :post, class: "btn btn-primary" unless current_user.follows_or_same?(a) %></p>
+                      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
