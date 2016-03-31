@@ -19,4 +19,3 @@
 //= require morris
 // require turbolinks
 //= require_tree .
-//= require exercise
