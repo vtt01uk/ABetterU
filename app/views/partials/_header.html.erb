@@ -1,5 +1,4 @@
-<header role="banner">
-  <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -12,41 +11,28 @@
       <% favicon_link_tag '/favicon.ico' %>
     </div>
     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-<!--
-        <li class="active"><% link_to "Home", root_path %>
-          <span class="sr-only">(current)</span>
-        </li>
--->
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-
-        <li><%= link_to "Workouts", user_exercises_path(current_user) %></li>
-         <li><%= link_to "Sign Out",  destroy_user_session_path, method: :delete %></li>
-          <div class="navbar-right">
-            <p class="navbar-text">Signed in as <%= "#{current_user.first_name}" %></p>
-          </div>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-left">
-        <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
-        <div class="form-group">
-          <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
-        </div>
-        <%= submit_tag "Search", class: "btn btn-default" %>
-        <% end %>
-      </ul>
-
-       <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Workouts", user_exercises_path(current_user) %></li>
+          <li><%= link_to "My Account", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out",  destroy_user_session_path, method: :delete %></li>
+          <p class="navbar-text">Signed in as <%= "#{current_user.first_name}" %></p>
         <% else %>
-          <li><%= link_to "Signup", new_user_registration_path %></li>
-          <li><%= link_to "Log in", new_user_session_path %></li>
+            <li><%= link_to "Signup", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", root_path %></li>
+        <%= form_tag(search_dashboard_path, class: "navbar-form navbar-left", role: "search") do %>
 
+          <div class="form-group">
+            <%= text_field_tag :search_name, nil, placeholder: "Search", class: "form-control" %>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-default" %>
+
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>
-</header>
