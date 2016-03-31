@@ -4,7 +4,7 @@
     <h1><%= @friend.full_name %>'s Exercises</h1>
     <% unless @exercises.empty? %>
         <h1>Listing Exercises</h1><br>
-        <%= will_paginate @exercises %>
+        
       <table class="table table-hover">
         <thead>
           <tr>
@@ -24,7 +24,7 @@
            <% end %>
           </tbody>
         </table>
-          <%= will_paginate @exercises %>
+
         <br>
       <% else %>
         <div class="alert alert-danger message-font text-center" role="alert">

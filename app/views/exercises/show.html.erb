@@ -1,39 +1,39 @@
-<div class="container">
-  <div>
-    <h2 class="show-header text-center"><%= "#{@exercise.user.full_name}'s Workout Details" %></h2>
-    <br><br>
-  </div>
- <div class="col-xs-10 col-md-10 col-md-offset-2">
+<%= render 'partials/header' %>
+<section>
+  <div class="container-fluid">
+    <h2 class="show-header text-center"><%= "#{@exercise.user.full_name}'s Workout Details" %></h2><br>
+      <div class="col col-md-8 col-md-offset-2">
+        <table class="table">
+       <thead>
+          <tr>
+            <th>Duration (mins)</th>
+            <th>Workout details</th>
+            <th>Activity date</th>
+            <th colspan="3"></th>
+          </tr>
+       </thead>
+        <tbody>
+            <tr>
+              <td><%= @exercise.duration_in_min%></td>
+              <td><%= @exercise.workout %></td>
+              <td><%= @exercise.workout_date.strftime('%m-%d-%Y') %></td>
+            </tr>
+          </tbody>
+    </table>
+      </div>
+    <%= link_to "Back", user_exercises_path(current_user), class: "btn btn-lg btn-primary" %>
+  </div><!-- container-->
+</section>
 
-    <div class="col-xs-12 col-xs-10 well member">
-      <div class="col-xs-4">
-        <strong>Duration (mins):</strong>
-      </div>
-      <div class="col-xs-8 text-left">
-        <%= @exercise.duration_in_min%>
-      </div>
-    </div>
 
-    <div class="col-xs-12 col-xs-10 well member">
-      <div class="col-xs-4">
-        <strong>Workout details:</strong>
-      </div>
-      <div class="col-xs-8 text-left">
-        <%= @exercise.workout %>
-      </div>
-    </div>
 
-    <div class="col-md-12 col-md-10 well member">
-      <div class="col-xs-4">
-        <strong>Activity date:</strong>
-      </div>
-      <div class="col-xs-8 text-left">
-        <%= @exercise.workout_date.strftime('%m-%d-%Y') %>
-      </div>
-    </div>
 
-     <div class="col-xs-12 col-md-10 member">
-      <%= link_to "Back", user_exercises_path(current_user) %>
-    </div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
