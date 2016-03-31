@@ -67,7 +67,10 @@
                     </div>
                   <% end %>
                   <% @athletes.each do |a| %>
-                    <p><%= a.first_name %> <%= a.last_name %>  since: <%= a.created_at.strftime('%b/%Y') %></p><br>
+                    <p><%= a.first_name %> <%= a.last_name %>  since: <%= a.created_at.strftime('%b/%Y') %>
+                      <% if user_signed_in? %>
+                      <%= link_to "Add", friendships_path(friend_id: a.id), method: :post, class: "btn btn-primary" unless current_user.follows_or_same?(a)%>
+                      <%end%></p><br>
                   <% end %>
                 </div>
 
