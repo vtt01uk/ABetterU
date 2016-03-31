@@ -30,17 +30,8 @@ return date_string;
 //Morris.Donut({
 //  element: 'donut-chart',
 //data: $('#donut-chart').data('workouts'),
-//  labels: ['Duration (min)'],  
+//  labels: ['Duration (min)'],
 //  lineColors: ['#2D9C2F'],
 //  pointFillColors: ['#ff9900'],
-//  
+//
 //});
-
-
-
-
-
-
-
-
-
