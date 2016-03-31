@@ -6,7 +6,7 @@
           <div id="error_explanation">
             <h2>
               <%= pluralize(@exercise.errors.count, "error") %>
-            prohibited this exercise from being saved: 
+            prohibited this exercise from being saved:
             </h2>
             <ul>
               <% @exercise.errors.full_messages.each do |message| %>
@@ -23,7 +23,7 @@
 
             <div class="col-md-3">
               <%= f.number_field :duration_in_min, class: "form-control" %>
-            </div>  
+            </div>
           </div>
 
           <div class="form-group">
@@ -32,15 +32,18 @@
             </div>
             <div class="col-md-8">
               <%= f.text_area :workout, class: "form-control", rows: "10" %>
+
             </div>
           </div>
 
           <div class="form-group">
             <div class="control-label col-md-2">
+
               <%= f.label :workout_date, "Activity date" %>
             </div>
             <div class="col-md-3">
-              <%= f.text_field :workout_date, class: "form-control" %>
+              <%= f.date_select(:workout_date, :order => [:month, :day, :year], class: 'form-control') %>
+              
             </div>
           </div>
 
