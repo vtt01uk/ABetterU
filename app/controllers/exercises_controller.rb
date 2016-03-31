@@ -4,7 +4,7 @@ class ExercisesController < ApplicationController
 
 
   def index
-    @exercises = current_user.exercises.all
+    @exercises = current_user.exercises.paginate(:page => params[:page], :per_page => 10)
     @friends = current_user.friends
   end
 
