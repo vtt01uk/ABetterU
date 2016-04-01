@@ -11,7 +11,7 @@
         <%= @exercise.duration_in_min%>
       </div>
     </div>
-      
+
     <div class="col-xs-12 col-xs-10 well member">
       <div class="col-xs-4">
         <strong>Workout details:</strong>
@@ -20,7 +20,7 @@
         <%= @exercise.workout %>
       </div>
     </div>
-     
+
     <div class="col-md-12 col-md-10 well member">
       <div class="col-xs-4">
         <strong>Activity date:</strong>
@@ -29,7 +29,20 @@
         <%= @exercise.workout_date.strftime('%m-%d-%Y') %>
       </div>
     </div>
-  
+
+    <div class="col-md-12 col-md-10 well member">
+      <div class="col-xs-4">
+        <strong>Status</strong>
+      </div>
+      <div class="col-xs-8 text-left">
+        <% if @exercise.status %>
+          Completed
+        <% else %>
+          Not Completed
+        <% end %>
+      </div>
+    </div>
+
      <div class="col-xs-12 col-md-10 member">
       <%= link_to "Back", user_exercises_path(current_user) %>
     </div>
